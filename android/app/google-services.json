@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "12864710564",
+    "firebase_url": "https://claruswayfire-c47e6.firebaseio.com",
+    "project_id": "claruswayfire-c47e6",
+    "storage_bucket": "claruswayfire-c47e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12864710564:android:5c06e693dd3e73f0b0c331",
+        "android_client_info": {
+          "package_name": "com.proje"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12864710564-nl9m7dvp9h43sb6po5lp86aoik5dn72g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBzddRg8OAv1LemG28MI9uc6CzqKzjL0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12864710564-nl9m7dvp9h43sb6po5lp86aoik5dn72g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
