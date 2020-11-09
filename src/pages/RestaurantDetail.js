@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, Image, View, Dimensions, TouchableOpacity} from 'react-native';
+import {StyleSheet, Linking, Text, Image, View, Dimensions, TouchableOpacity} from 'react-native';
 
 // address: "4021 Beltline Road #101"
 // area: "Dallas - Fort Worth"
@@ -26,6 +26,7 @@ const RestaurantDetail = (props) => {
     <View>
       <Text style={styles.name}>{item.name}</Text>
 
+
       <Image
         style={styles.image}
         source={{uri: item.image_url}}
@@ -42,16 +43,19 @@ const RestaurantDetail = (props) => {
       <View style={styles.infoContainer}>
         <Text style={styles.infoText}>{item.phone}</Text>
       </View>
+      <View style={[styles.infoContainer1, {backgroundColor : item.price > 2 ? 'red' : '#607d8b' }]}>
+        <Text style={styles.infoText}>Price :  
+        {
+          item.price < 3  ? '  Affordable   😊' : '  Expensive   🤑'
+        }
+        </Text>
+      </View>
 
       <TouchableOpacity
-        style={styles.touch1}
-        onPress={() => props.navigation.navigate('Cities')}>
-        <Text style={styles.touchText1}>Cities</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.touch2}
-        onPress={() => props.navigation.goBack()}>
-        <Text style={styles.touchText2}>Go Back</Text>
+        style={styles.touch1}>
+        <Text style={styles.touchText1}
+        onPress={() => Linking.openURL(item.reserve_url)}>
+        Go To Reserve</Text>
       </TouchableOpacity>
     </View>
   );
@@ -60,6 +64,10 @@ const RestaurantDetail = (props) => {
 export {RestaurantDetail};
 
 const styles = StyleSheet.create({
+  conta2 : {
+    flexDirection  :"row" ,
+    justifyContent : "space-around"
+  },
   name: {
       fontWeight: '300', 
       fontSize: 35 ,
@@ -67,7 +75,8 @@ const styles = StyleSheet.create({
       textAlign : "center",
       marginTop : 10 ,
       backgroundColor : '#607d8b',
-      padding : 10      
+      padding : 10      ,
+      color : '#ededed'
 },
   image: {
       height: Dimensions.get('window').height / 3 ,
@@ -78,7 +87,13 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 5,
     borderRadius: 5,
-    marginVertical : 10
+    marginVertical : 5
+  },
+  infoContainer1: {
+    padding: 10,
+    margin: 5,
+    borderRadius: 5,
+    marginVertical : 5
   },
   infoText: {
       color: 'white', 
@@ -87,7 +102,7 @@ const styles = StyleSheet.create({
     },
   touch1: {
       marginTop : 30,
-    backgroundColor: '#263238',
+    backgroundColor: '#002424',
     marginHorizontal: 80,
     padding: 10,
     borderRadius: 10,
@@ -96,17 +111,7 @@ const styles = StyleSheet.create({
   touchText1: {
     fontSize: 25,
     textAlign: 'center',
-    color: 'white',
-  },
-  touch2: {
-    backgroundColor: '#263238',
-    marginHorizontal: 80,
-    padding: 10,
-    borderRadius: 10,
-  },
-  touchText2: {
-    fontSize: 25,
-    textAlign: 'center',
-    color: 'white',
-  },
+    color: '#ffff1f',
+    fontWeight : "bold"
+  }, 
 });
