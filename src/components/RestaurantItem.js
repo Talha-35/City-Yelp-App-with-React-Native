@@ -20,10 +20,11 @@ export  {RestaurantItem}
 
 const styles = StyleSheet.create({
     image : {
-        height : Dimensions.get("window").height / 3
+        height : Dimensions.get("window").height / 5
     },
     text : {
-        fontSize : 20
+        fontSize : 20,
+        textAlign :  "center"
     },
     container :{
         padding  : 10 ,

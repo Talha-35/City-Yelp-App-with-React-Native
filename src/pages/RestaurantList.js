@@ -2,7 +2,7 @@ import Axios from 'axios'
 import React, {useState ,useEffect} from 'react'
 import { StyleSheet, Text, View,FlatList,TouchableOpacity } from 'react-native'
 
-import {RestaurantItem, SearchBar} from '../components'
+import {RestaurantItem, SearchBar, Button} from '../components'
 
 let originalRestaurantList = [];
 
@@ -61,15 +61,17 @@ const RestaurantList = (props) => {
                 keyExtractor={((item,index) => index.toString()) }
                 data={restaurantList}
                 renderItem={renderRestaurant}
-                style
-           
             />
-            <TouchableOpacity 
-            style={styles.touch}
-            onPress={() => props.navigation.goBack()}
-            >
-                <Text style={styles.touchText}>Go Back</Text>
-            </TouchableOpacity>
+            <Button
+                onData={() => props.navigation.goBack()}
+                title='Go Back'
+                style1={styles.touch}
+                style2={styles.touchText}
+            />            
+            <Button
+                onData={() => props.navigation.goBack()}
+                title='Main Page'               
+            />            
             
         </View>
     )

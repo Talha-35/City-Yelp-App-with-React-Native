@@ -2,25 +2,20 @@ import React, {useState, useEffect} from 'react';
 import {get} from 'axios';
 import {StyleSheet, Linking, Text, Image, View, Dimensions, TouchableOpacity} from 'react-native';
 
+import {Button} from '../components'
+
 
 
 const RestaurantDetail = (props) => {
   const [restaurantPhotos , setRestaurantPhotos ] = useState([]);  
   const {item} = props.route.params;
 
-  const fetchPhotos = () => {
-    get('https://random-data-api.com/api/restaurant/random_restaurant')
+  const fetchPhotos = async () => {
+    const response = await get('https://random-data-api.com/api/restaurant/random_restaurant')
     .then((response) => {
       setRestaurantPhotos(response.data)
     })
   }
-  // ASYNC-AWAIT version
-  // const fetchPhotos = async () => {
-  //   const response = await get('https://random-data-api.com/api/restaurant/random_restaurant')
-  //   .then((response) => {
-  //     setRestaurantPhotos(response.data)
-  //   })
-  // }
 
   useEffect(() => {
     fetchPhotos();
@@ -29,7 +24,6 @@ const RestaurantDetail = (props) => {
   return (
     <View>
       <Text style={styles.name}>{item.name}</Text>
-
 
       <Image
         style={styles.image}
@@ -54,14 +48,14 @@ const RestaurantDetail = (props) => {
         }
         </Text>
       </View>
+      <Button
+          onData={() => Linking.openURL(item.reserve_url)}
+          title='Go To Reserve'
+          style1={styles.touch}
+          style2={styles.touchText}         
+      />        
 
-      <TouchableOpacity
-        style={styles.touch1}>
-        <Text style={styles.touchText1}
-        onPress={() => Linking.openURL(item.reserve_url)}>
-        Go To Reserve</Text>
-      </TouchableOpacity>
-    </View>
+      </View>
   );
 };
 
@@ -106,7 +100,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       fontSize : 18
     },
-  touch1: {
+  touch: {
       marginTop : 30,
     backgroundColor: '#002424',
     marginHorizontal: 80,
@@ -114,7 +108,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 20,
   },
-  touchText1: {
+  touchText: {
     fontSize: 25,
     textAlign: 'center',
     color: '#ffff1f',
