@@ -1,5 +1,5 @@
 
-<h1 align="center" >City-Yelp-App-with-React-Native</h1>
+<h1 align="center" color="red">City-Yelp-App-with-React-Native</h1>
 
 ## Description
 
