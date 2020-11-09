@@ -23,7 +23,7 @@ A work about making a City-Yelp-App-with-React-Native
 - [Axios](https://github.com/axios/axios)
 
 
-## How To Use
+## How To Use / Download
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
@@ -35,8 +35,10 @@ $ npm install
 
 $ npx react-native run-android
 
+```
+## Packages
 
-<h1 align="center">PACKAGES</h1>
+```bash
 
 $ npm install @react-navigation/native
 
