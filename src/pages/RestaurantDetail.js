@@ -14,6 +14,13 @@ const RestaurantDetail = (props) => {
       setRestaurantPhotos(response.data)
     })
   }
+  // ASYNC-AWAIT version
+  // const fetchPhotos = async () => {
+  //   const response = await get('https://random-data-api.com/api/restaurant/random_restaurant')
+  //   .then((response) => {
+  //     setRestaurantPhotos(response.data)
+  //   })
+  // }
 
   useEffect(() => {
     fetchPhotos();
