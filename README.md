@@ -1,7 +1,5 @@
 
-<h1 align="center">City-Yelp-App-with-React-Native</h1>
-
-A work about making a City-Yelp-App-with-React-Native
+<h1 align="center" >City-Yelp-App-with-React-Native</h1>
 
 ## Description
 
