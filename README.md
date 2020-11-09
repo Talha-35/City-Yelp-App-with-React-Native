@@ -20,6 +20,7 @@ A work about making a City-Yelp-App-with-React-Native
 - [React](https://reactjs.org/)
 - [React-Native](https://reactnative.dev/)
 - [React-Navigation](https://reactnavigation.org/)
+- [Axios](https://github.com/axios/axios)
 
 
 ## How To Use
