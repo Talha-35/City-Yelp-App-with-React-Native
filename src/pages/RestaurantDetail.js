@@ -1,26 +1,23 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {get} from 'axios';
 import {StyleSheet, Linking, Text, Image, View, Dimensions, TouchableOpacity} from 'react-native';
 
-// address: "4021 Beltline Road #101"
-// area: "Dallas - Fort Worth"
-// city: "Addison"
-// country: "US"
-// id: 5526
-// image_url: "https://www.opentable.com/img/restimages/5526.jpg"
-// lat: 32.95526
-// lng: -96.844675
-// mobile_reserve_url: "http://mobile.opentable.com/opentable/?restId=5526"
-// name: "Lefty's"
-// phone: "9727749518x"
-// postal_code: "75001"
-// price: 2
-// reserve_url: "http://www.opentable.com/single.aspx?rid=5526"
-// state: "TX"
+
 
 const RestaurantDetail = (props) => {
+  const [restaurantPhotos , setRestaurantPhotos ] = useState([]);  
   const {item} = props.route.params;
 
-  console.log(item);
+  const fetchPhotos = () => {
+    get('https://random-data-api.com/api/restaurant/random_restaurant')
+    .then((response) => {
+      setRestaurantPhotos(response.data)
+    })
+  }
+
+  useEffect(() => {
+    fetchPhotos();
+  }, [])
 
   return (
     <View>
@@ -29,7 +26,7 @@ const RestaurantDetail = (props) => {
 
       <Image
         style={styles.image}
-        source={{uri: item.image_url}}
+        source={{uri: restaurantPhotos.logo}}
       />
 
       <View style={styles.infoContainer}>
@@ -80,6 +77,8 @@ const styles = StyleSheet.create({
 },
   image: {
       height: Dimensions.get('window').height / 3 ,
+      width: Dimensions.get('window').width * 0.98 ,
+      marginLeft: 4 ,
       marginVertical : 10
   },
   infoContainer: {
