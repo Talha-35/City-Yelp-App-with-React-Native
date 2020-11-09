@@ -35,6 +35,9 @@ $ npm install
 
 $ npx react-native run-android
 
+
+<h1 align="center">PACKAGES</h1>
+
 $ npm install @react-navigation/native
 
 $ npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
@@ -43,6 +46,7 @@ $ npm install @react-navigation/stack
 
 $ npm install axios
 
+$ npm install --save react-native-vector-icons
 ```
 
 ## Contact
